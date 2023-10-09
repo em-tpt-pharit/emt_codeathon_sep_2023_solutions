@@ -7,9 +7,9 @@ import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 class ActiveTradersLogic {
     public static List<String> mostActive(List<String> customers) {
-        Map<String, Integer> customerMap = new TreeMap<>();
-        List<String> solutionStr = new ArrayList<>();
-        int customerMapSize = customers.size();
+        Map<String, Integer> customerMap = new TreeMap<>();  //  TreeMap to store customer names and their counts
+        List<String> solutionStr = new ArrayList<>();   // List to store the most active customers
+        int customerMapSize = customers.size();         // Total customers
         for (int i = 0; i < customerMapSize; i++) {
             String customerKey = customers.get(i);
             customerMap.put(customerKey, customerMap.getOrDefault(customerKey, 0) + 1);
@@ -29,7 +29,7 @@ public class Codeathon02_Haritha {
     public static void main(String[] args) throws IOException {
         BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter bufferedWriter = new BufferedWriter(new OutputStreamWriter(System.out));
-        int customersCount = Integer.parseInt(bufferedReader.readLine().trim());
+        int customersCount = Integer.parseInt(bufferedReader.readLine().trim());   // Read the number of customers from input
         List<String> customers = IntStream.range(0, customersCount)
                 .mapToObj(i -> {
                     try {
@@ -38,7 +38,7 @@ public class Codeathon02_Haritha {
                         throw new RuntimeException(ex);
                     }
                 }).collect(Collectors.toList());
-        List<String> result = ActiveTradersLogic.mostActive(customers);
+        List<String> result = ActiveTradersLogic.mostActive(customers);    //Call the mostActive method to find the most active customers
         result.forEach(customer -> {
             try {
                 bufferedWriter.write(customer + "\n");
@@ -46,7 +46,7 @@ public class Codeathon02_Haritha {
                 e.printStackTrace();
             }
         });
-        bufferedReader.close();
+        bufferedReader.close();   // close the input and output streams
         bufferedWriter.close();
     }
 

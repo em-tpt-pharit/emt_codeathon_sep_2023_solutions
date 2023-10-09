@@ -13,8 +13,8 @@ public class Codeathon01_Haritha
     for (int i = 0; i < n; i++)
       usernames[i] = sc.next();
 
-    //calling method possibleChanges with usernames
-    results = UsernamesDictionarySeries.possibleChanges(usernames);
+    //calling method possible Changes with usernames
+    results =DictionarySeries.possibleChanges(usernames);
 
     //displaying the results of possible changes YES / NO for user names
     for (int i = 0; i < n; i++)
@@ -22,7 +22,7 @@ public class Codeathon01_Haritha
   }
 }
 
-class UsernamesDictionarySeries
+class DictionarySeries
 {
   // method to know possible changes in each user name
   public static String[] possibleChanges(String usernames[])
